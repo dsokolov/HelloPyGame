@@ -14,11 +14,11 @@ class Game:
         self.display = pygame.Surface((320, 240))
         self.clock = pygame.time.Clock()
         self.movement = [False, False]
-        self.player = PhysicsEntity(self, 'player', (30, 10), (32, 32))
+        self.player = PhysicsEntity(self, 'player', (30, 10), (16, 16))
         self.tilemap = Tilemap(self)
         self.assets = {
             'wall': load_images('tiles/wall/'),
-            'player': load_image('ball.png'),
+            'player': load_image('ball_green.png'),
         }
 
     def run(self):
@@ -42,7 +42,7 @@ class Game:
 
             self.player.update(self.tilemap, (self.movement[1] - self.movement[0], 0))
 
-            self.display.fill('white')
+            self.display.fill((32,40,61))
             self.player.render(self.display)
             self.tilemap.render(self.display)
 
